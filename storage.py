@@ -21,7 +21,6 @@ class Storage:
         new_obj.append(new_df.size)
         new_obj.append(dict(new_df))
         self.storage.append(new_obj)
-        return self.storage
 
     def get(self, name):
         for i in self.storage:
