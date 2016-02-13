@@ -2,7 +2,6 @@ from unittest.case import TestCase
 from storage import Storage
 import numpy as np
 import pandas as pd
-from pandas.util.testing import assert_frame_equal
 
 
 class TestStorage(TestCase):
