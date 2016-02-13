@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 index_name = 0
 index_size = 1
