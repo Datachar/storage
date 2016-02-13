@@ -30,5 +30,4 @@ class Storage:
                 else:
                     return pd.Series(i[index_df])
         new_input = input("\n DataFrame '" + name + "' not found. Enter new name - ")
-        print(new_input == '')
         return self.get(new_input)
