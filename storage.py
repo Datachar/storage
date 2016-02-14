@@ -1,36 +1,46 @@
 from tables import *
+
 import pandas as pd
 
 # h5file = open_file('data_base.h5', mode='w', title='test file')
 
-index_name = None
-index_data_frame = 0
+index_name = 0
+index_data_frame = 1
 
 
 class Storage:
     def __init__(self):
         self.storage_table = []
 
-    def add(self, name, new_df):
+    def add(self, new_name, new_df):
         if len(self.storage_table) > 0:
             for i in self.storage_table:
-                if name == i[index_name]:
-                    input_elem = ('Element ' + name + 'already exists. Please input new name: ')
-                    return self.add(index_name, new_df)
+                if new_name == i[0].names:
+                    new_input_name = ('Element with name ' + new_name + 'already exists. Please input new name: ')
+                    return self.add(new_input_name, new_df)
+
         new_elem = list([])
+        name = pd.DatetimeIndex(data=new_df, name=new_name)
+        self.storage_table.append(name)
+
+
+        '''
         new_elem.append(name)
-        new_elem.append(dict(new_df))
-        self.storage_table.append(new_elem)
+        new_elem.append(new_df)
+        '''
+        self.storage_table.append(name)
 
     def get(self, name):
         for i in self.storage_table:
-            if name == i[index_name]:
-                return pd.DataFrame(i[index_name])
+            if name == i[0]:
+                return pd.DatetimeIndex.get_value(name)
             else:
-                return pd.Series(i[index_name])
+                new_name = input('Name ' + name + ' not found. Please input other name: ')
+                return self.get(new_name)
 
 
 if __name__ == '__main__':
     storage = Storage()
-    storage.add('new_record', pd.Series([1, 2, 'f', 4, 5]))
+    storage.add('new_record', [1, 2, 3, 4])
+
     print(storage.get('new_record'))
