@@ -13,11 +13,8 @@ class TestStorage(TestCase):
     def test_get_first_when_none(self):
         s = Storage('test')
         print('After')
-        s.get('test')
-        print('Not Display')
         with self.assertRaises(KeyError):
-            print('Before')
-            self.assertTrue(0 == 0)
+            s.get('test')
 
     def test_get_first(self):
         s = Storage('test2')
