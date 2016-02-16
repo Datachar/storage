@@ -32,3 +32,13 @@ class TestStorage(TestCase):
         s.add('third', self.third)
         s.add('third2', self.third)
         self.assertTrue(s.get('third').equals(s.get('third2')))
+
+    def test_get_with_a_dash(self):
+        s = Storage('test-3')
+        s.add('third-third', self.third)
+        self.assertTrue(s.get('third-third').equals(self.third))
+
+    def test_get_whit_a_space(self):
+        s = Storage('test 3')
+        s.add('third third', self.third)
+        self.assertTrue(s.get('third third').equals(self.third))
