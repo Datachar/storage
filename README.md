@@ -22,3 +22,4 @@ requiremens:
 - records in pytable should be accessed by names. for example: storage.get('name1'). have to return data frame
 - have to be ability to add new records into storage. for example: storage.add('name2', new_df). have to add new record into storage
 
+asdvvaw
